@@ -57,9 +57,10 @@ The background class (empty scene, hands, face) maps to `clear`, so all LEDs tur
 ## Files
 
 ```
-snack_detector.py                         Python: camera, model, serial
+project camera code 2.py                       Python: camera, model, serial
 snack_detector_sketch/
-    snack_detector_sketch.ino             Arduino sketch
+    9code.ino
+   Arduino sketch
 keras_model.h5                            Trained model
 labels.txt                                Class labels
 ```
