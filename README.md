@@ -4,8 +4,8 @@ A camera watches an object, a vision model I trained myself recognizes it, and a
 
 | Object shown | LED that lights up |
 |---|---|
-| Cheez-It | Yellow |
-| Peanut butter sandwich | Red |
+| Cheez-It | red |
+| Peanut butter sandwich | yellow |
 | Calculator | Blue |
 | Nothing (background) | All LEDs off |
 
@@ -32,8 +32,8 @@ Webcam -> Python + trained model -> USB serial -> Arduino Mega 2560 -> LED
 
 | Part | Arduino pin |
 |---|---|
-| Yellow LED (Cheez-It) | 8 |
-| Red LED (peanut butter sandwich) | 7 |
+| red LED (Cheez-It) | 8 |
+| yellow LED (peanut butter sandwich) | 7 |
 | Blue LED (calculator) | 6 |
 | Ground | GND to the breadboard - rail |
 
@@ -81,22 +81,16 @@ labels.txt                                Class labels
 
 ## Problems I ran into and how I fixed them
 
-*(Edit this section in your own words and add anything else you remember.)*
-
-- **Wrong pin:** my LED was on pin 11, but the sketch used pin 13. I tested the LED with the Blink example to find the right pin.
-- **COM3 "Access is denied":** a running Python script (or the Serial Monitor) was holding the port, so uploads failed. I had to stop Python before every upload.
-- **Label numbers start at 0:** Teachable Machine shows classes starting at 1, but `labels.txt` starts at 0. The mapping in the code has to use the `labels.txt` numbers.
-- **Labels in a different order:** after retraining, my classes were in a different order than I expected, so the terminal showed the wrong names. I fixed the mapping to match `labels.txt`.
-- **Arduino code saved as `.py`:** VS Code underlined everything. Arduino code must be saved as `.ino` in a folder with the same name.
-- **LED stayed on when nothing was shown:** the first model had no background class, so it always picked one of the three objects. I added a background class in Teachable Machine, retrained, and mapped it to `clear` so all LEDs turn off.
-- **Camera script kept running:** the `q` key only works when the webcam window is selected, so I used Ctrl+C or the terminal trash can when needed.
+## Problems I ran into and how I fixed them
+- One was wrong pin which is why i ahd my agent write me a script on arduino for me to test my pins and make sur every led works
+- When i ran my vs code camera script it couldn't open the camera or fram i realized it was because it was being used in the background
+- After retraining, my classes were in a different order than I expected, so the terminal showed the wrong names. I fixed the mapping to match `labels.txt`.
+- VS Code underlined everything. Arduino code must be saved as `.ino` in a folder with the same name.
+- The first model had no background class, so it always picked one of the three objects. I added a background class in Teachable Machine, retrained, and mapped it to `clear` so all LEDs turn off.
+- The `q` key only works when the webcam window is selected, so I used Ctrl+C or the terminal trash can when needed.
 
 ## Photos and video
-
-*(Add your pictures or video here, for example:)*
-
-- `images/circuit.jpg`: the breadboard and Arduino
-- `images/demo.mp4`: the demo working with each object
+I have submitted all photos and videos 
 
 ## Possible improvements
 
